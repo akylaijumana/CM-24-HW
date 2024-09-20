@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+double f(double x){
+    return sin(x);
+}
+void integration(double a, double b, int n=100){
+    double I=0;
+    int k =0;
+    while(k<=n){
+    double r = (b - a) * (static_cast<double>(rand()) / RAND_MAX) + a; 
+        I += f(r) * (b - a) / n; 
+        k++; 
+    } 
+    cout<<I<<endl;
+}
+int main() {
+    double a =M_PI;
+    double b =3*M_PI/2;
+    int n =1000;
+    
+    integration (a,b,n);
+    return 0;
+}
