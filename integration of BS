@@ -2,24 +2,24 @@
 #include <cmath>
 using namespace std;
 
-double f(double x){
-    return sin(x);
+double integration(double x) {
+    return x; 
 }
-void integration(double a, double b, int n=100){
-    double I=0;
-    int k =0;
-    while(k<=n){
-    double r = (b - a) * (static_cast<double>(rand()) / RAND_MAX) + a; 
-        I += f(r) * (b - a) / n; 
-        k++; 
-    } 
-    cout<<I<<endl;
-}
+
 int main() {
-    double a =M_PI;
-    double b =3*M_PI/2;
-    int n =100;
-    
-    integration (a,b,n);
+    double a = 0.0; 
+    double b = 1.0;  
+    int n = 100;    
+    double I = 0.0; 
+    int K = 0;       
+
+    srand(time(0));  
+
+    while (K < n) {
+        double r = (b - a) * rand(a-b) + a;  
+        I += integration(r) * (b - a);  
+        K++;
+    }
+    cout << I / K << endl; 
     return 0;
 }
