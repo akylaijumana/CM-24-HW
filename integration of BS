@@ -5,6 +5,8 @@ using namespace std;
 double integration(double x) {
     return x; 
 }
+double drand(int d){
+    return((rand()%1000)/1000.0)*d;
 
 int main() {
     double a = 0.0; 
@@ -16,7 +18,7 @@ int main() {
     srand(time(0));  
 
     while (K < n) {
-        double r = (b - a) * rand(a-b) + a;  
+        double r = (b - a) * drand(b-a) + a;  
         I += integration(r) * (b - a);  
         K++;
     }
