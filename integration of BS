@@ -11,9 +11,6 @@ int main() {
     int n = 100;    
     double I = 0.0; 
     int K = 0;       
-
-    srand(time(0));  
-
     while (K<=n) {
         double r = (b - a) * drand(b-a) + a;  
         I = I + sin(r)*r;  
